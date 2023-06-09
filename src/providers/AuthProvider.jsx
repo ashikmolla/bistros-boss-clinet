@@ -25,12 +25,12 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         return signOut(auth);
     }
-// updetede profile
-const updateUserProfile=(name, photo)=>{
-   return updateProfile(auth.createUser,{
-        displayName:name, photoURL:photo 
-    })
-}
+    // updetede profile
+    const updateUserProfile = (name, photo) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name, photoURL: photo
+        })
+    }
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
