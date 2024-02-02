@@ -3,6 +3,7 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-s
 import { AuthContext } from '../../providers/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 // import Swal from 'sweetalert2'
 
 const Login = () => {
@@ -62,7 +63,7 @@ const Login = () => {
             </Helmet>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="text-center md:w-1/2 lg:text-left border ps-16">
+                    <div className="text-center md:w-1/2 lg:text-left ps-16">
                         <h1 className="text-5xl font-bold">Login now!</h1>
                         <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     </div>
@@ -103,9 +104,12 @@ const Login = () => {
 
                         </form>
                         <p className='text-center -mt-8'><smail> New Here? </smail><Link className='text-orange-400' to='/signUp'> Create an Acounte</Link> </p>
+                        <SocialLogin></SocialLogin>
                     </div>
                 </div>
+
             </div>
+
         </>
 
 
