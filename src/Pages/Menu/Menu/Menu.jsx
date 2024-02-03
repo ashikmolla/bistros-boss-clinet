@@ -1,6 +1,6 @@
 
 import { Helmet } from 'react-helmet-async';
-import menuImge from '../../../assets/menu/menu-bg.png';
+import menuImge from '../../../assets/menu/banner3.jpg';
 import dessertImge from '../../../assets/menu/dessert-bg.jpeg'
 import pizzaImge from '../../../assets/menu/pizza-bg.jpg'
 import saladImge from '../../../assets/menu/salad-bg.jpg'

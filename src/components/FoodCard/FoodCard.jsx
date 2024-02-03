@@ -8,24 +8,25 @@ import useCart from "../../Hooks/useCart";
 const FoodCard = ({ item }) => {
     const { name, image, recipe, price, _id } = item || '';
     const { user } = useContext(AuthContext);
-    const [, refetch]=useCart();
+    const [, refetch] = useCart();
     const navigate = useNavigate();
-    const location=useLocation();
+    const location = useLocation();
+
     const handleAddToCart = item => {
         console.log(item)
         if (user && user.email) {
-            const orderItem={menuItemId:_id, name, image, price, email: user.email}
-            fetch('http://localhost:5000/carts',{
-                method:'POST',
-                headers:{
+            const orderItem = { menuItemId: _id, name, image, price, email: user.email }
+            fetch('http://localhost:5000/carts', {
+                method: 'POST',
+                headers: {
                     'content-type': 'application/json'
                 },
                 body: JSON.stringify(orderItem)
             })
                 .then(res => res.json())
                 .then(data => {
-                    
 
+                    console.log(data)
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
@@ -36,7 +37,7 @@ const FoodCard = ({ item }) => {
                     refetch(); //refetch cart to update the number in the cart 
                 })
         }
-        else{
+        else {
             Swal.fire({
                 title: 'Please Login  then Order the foood',
                 text: "You won't be able to revert this!",
@@ -45,11 +46,11 @@ const FoodCard = ({ item }) => {
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Yes, Login Now!'
-              }).then((result) => {
+            }).then((result) => {
                 if (result.isConfirmed) {
-                navigate('/login',{state: {from:location}})
+                    navigate('/login', { state: { from: location } })
                 }
-              })
+            })
         }
     }
     return (
@@ -60,7 +61,7 @@ const FoodCard = ({ item }) => {
                 <h2 className="card-title">{name}</h2>
                 <p>{recipe}</p>
                 <div className="card-actions justify-end mx-auto">
-                    <button onClick={() => handleAddToCart(item)} className="btn btn-outline bg-slate-200 text-black mb-4 border-0 border-b-4 border-orange-400">Add to crad</button>
+                    <button onClick={() => handleAddToCart(item)} className="btn bg-base-300  text-[#BB8506] hover:bg-black border-[#BB8506] mb-4 border-0 border-b-4 ">Add to crad</button>
                 </div>
             </div>
         </div>

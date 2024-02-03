@@ -28,7 +28,7 @@ const ShouldTry = () => {
                         <h2 className="card-title">Caeser Salad</h2>
                         <p>Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.</p>
                         <div className="card-actions ">
-                            <button className="btn bg-base-300 text-[#BB8506] hover:bg-black border-[#BB8506] border-t-0 border-s-0 border-e-0 border-b-2">Add to Cart</button>
+                            <button className="btn bg-base-300 text-[#BB8506] hover:bg-black border-[#BB8506] border-0 border-b-2">Add to Cart</button>
                         </div>
                     </div>
                 </div>
