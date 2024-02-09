@@ -55,7 +55,7 @@ const MyCart = () => {
                     <thead className="bg-[#D1A054] rounded uppercase">
                         <tr>
                             <th>
-                                #
+                                SL
                             </th>
                             <th>Food</th>
                             <th>Item Name</th>

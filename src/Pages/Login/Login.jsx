@@ -4,7 +4,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
-// import Swal from 'sweetalert2'
+import Swal from 'sweetalert2'
 
 const Login = () => {
     // const captchaRaf = useRef();
@@ -30,15 +30,17 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 alert('Login have a Success')
-                // Swal.fire({
-                //     title: 'Login Have Success',
-                //     showClass: {
-                //         popup: 'animate__animated animate__fadeInDown'
-                //     },
-                //     hideClass: {
-                //         popup: 'animate__animated animate__fadeOutUp'
-                //     }
-                // });
+
+                Swal.fire({
+                    title: 'Login Have Success',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                });
+
                 Navigate(from, { replace: true });
             })
             .catch((error) => {
@@ -46,13 +48,13 @@ const Login = () => {
             });
     }
     const handleCaptcha = (e) => {
+        e.preventDefault();
         const user_captcha_value = e.target.value;
-        console.log(user_captcha_value);
+
         if (validateCaptcha(user_captcha_value)) {
             setDisable(false)
         } else {
             setDisable(true);
-
         }
     }
     return (
@@ -61,7 +63,7 @@ const Login = () => {
             <Helmet>
                 <title>Bistro | Login</title>
             </Helmet>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen bg-base-200 mt-20">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center md:w-1/2 lg:text-left ps-16">
                         <h1 className="text-5xl font-bold">Login now!</h1>
@@ -99,7 +101,7 @@ const Login = () => {
                             </div>
                             {/* TODO mace button for captchsa (disable) */}
                             <div className="form-control mt-6">
-                                <input disabled={false} className="btn btn-primary" type="submit" value="Login" />
+                                <input disabled={disable} className="btn btn-primary" type="submit" value="Login" />
                             </div>
 
                         </form>
@@ -109,7 +111,6 @@ const Login = () => {
                 </div>
 
             </div>
-
         </>
 
 

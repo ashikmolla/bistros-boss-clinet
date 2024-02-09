@@ -18,41 +18,14 @@ const SignUP = () => {
     const from = location.state?.from?.pathname || "/";
 
 
-    // const onSubmit = data => {
-    //     console.log(data)
-    //     createUser(data.email, data.password)
-    //         .then(result => {
-    //             const loggedUser = result.user;
-    //             console.log(loggedUser)
-    //             updateUserProfile(data.name, data.photoURL)
-    //                 .then(() => {
-    //                     console.log('user profile Info Updete')
-    //                     reset();
-    //                     Swal.fire({
-    //                         position: 'top-end',
-    //                         icon: 'success',
-    //                         title: 'user  Created SuccessFully',
-    //                         showConfirmButton: false,
-    //                         timer: 1500
-    //                     })
-    //                     Navigate(from, { replace: true });
-
-    //                 })
-    //                 .catch(error => console.log(error))
-    //         })
-    //         .catch(error => console.log(error))
-
-    // };
-
 
     const onSubmit = data => {
 
         createUser(data.email, data.password)
             .then(result => {
-
                 const loggedUser = result.user;
                 console.log(loggedUser);
-
+                
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
                         const saveUser = { name: data.name, email: data.email }
@@ -89,7 +62,7 @@ const SignUP = () => {
             <Helmet>
                 <title>Bistro | Sign Up</title>
             </Helmet>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen bg-base-200 mt-20">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center md:w-1/2 lg:text-left ps-16">
                         <h1 className="text-5xl font-bold">Sign UP now!</h1>

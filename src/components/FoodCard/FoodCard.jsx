@@ -13,7 +13,7 @@ const FoodCard = ({ item }) => {
     const location = useLocation();
 
     const handleAddToCart = item => {
-        console.log(item)
+        // console.log(item)
         if (user && user.email) {
             const orderItem = { menuItemId: _id, name, image, price, email: user.email }
             fetch('http://localhost:5000/carts', {
@@ -26,7 +26,7 @@ const FoodCard = ({ item }) => {
                 .then(res => res.json())
                 .then(data => {
 
-                    console.log(data)
+                    // console.log(data)
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
