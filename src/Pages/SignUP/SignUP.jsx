@@ -25,10 +25,10 @@ const SignUP = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                
+
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
-                        const saveUser = { name: data.name, email: data.email }
+                        const saveUser = { name: data.name, email: data.email, photoURL: data.photoURL, password: data.password }
                         fetch('http://localhost:5000/users', {
                             method: 'POST',
                             headers: {
@@ -56,6 +56,7 @@ const SignUP = () => {
                     })
                     .catch(error => console.log(error))
             })
+            .catch(error => console.log(error))
     };
     return (
         <>
@@ -82,7 +83,7 @@ const SignUP = () => {
                                 <label className="label">
                                     <span className="label-text">Photo Url</span>
                                 </label>
-                                <input type="text"  {...register("photoURL", { required: true })} placeholder="Photo URL " className="input input-bordered" />
+                                <input type="text"  {...register("photoURL", { required: true })} name="photoURL" placeholder="Photo URL " className="input input-bordered" />
                                 {errors.photoURL && <span className="text-orange-400 text-sm">This field is photoUrl</span>}
                             </div>
 
