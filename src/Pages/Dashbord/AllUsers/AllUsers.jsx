@@ -4,7 +4,7 @@ import { FaTrashAlt, FaUserAltSlash } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 
-const Alluser = () => {
+const AllUsers = () => {
 
     const { data: user = [], refetch } = useQuery(['users'], async () => {
         const res = await fetch('http://localhost:5000/users')
@@ -83,4 +83,4 @@ const Alluser = () => {
     );
 };
 
-export default Alluser;
+export default AllUsers;
