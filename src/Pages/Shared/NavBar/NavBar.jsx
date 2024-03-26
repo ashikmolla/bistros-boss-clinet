@@ -23,6 +23,7 @@ const NavBar = () => {
         <li><Link className="py-4" to='/menu'>Menu</Link></li>
         <li><Link className="py-4" to='/Order/salad'>OUR Shop(Order)</Link></li>
         <li><Link className="py-4" to='/secret'>Secret</Link></li>
+        <li><Link className="py-4" target="_blank" to='াৃতদাহdksf;ka'>Secret</Link></li>
 
         {
             user ? <>
